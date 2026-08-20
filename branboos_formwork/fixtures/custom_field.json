@@ -1,6 +1,7 @@
 [
   {
     "doctype": "Custom Field",
+    "name": "Supplier-custom_city",
     "dt": "Supplier",
     "module": "Branboos Formwork",
     "fieldname": "custom_city",
@@ -10,6 +11,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Supplier-custom_current_quote",
     "dt": "Supplier",
     "module": "Branboos Formwork",
     "fieldname": "custom_current_quote",
@@ -19,6 +21,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Supplier-custom_on_time_rate",
     "dt": "Supplier",
     "module": "Branboos Formwork",
     "fieldname": "custom_on_time_rate",
@@ -28,6 +31,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Supplier-custom_quality_rating",
     "dt": "Supplier",
     "module": "Branboos Formwork",
     "fieldname": "custom_quality_rating",
@@ -37,6 +41,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Supplier-custom_dispute_count",
     "dt": "Supplier",
     "module": "Branboos Formwork",
     "fieldname": "custom_dispute_count",
@@ -47,6 +52,7 @@
   },
   {
     "doctype": "Custom Field",
+    "name": "Supplier-custom_past_project_count",
     "dt": "Supplier",
     "module": "Branboos Formwork",
     "fieldname": "custom_past_project_count",
