@@ -10,9 +10,11 @@ app_email       = "dev@branboos.com"
 app_license     = "MIT"
 
 # ── Branding ──────────────────────────────────────────────────────────────────
-# Small logo shown in the desk app-switcher / sidebar for this app.
+# Icon shown in the desk app-switcher tile for this app (must be square —
+# the wide wordmark logo.png gets squashed/pixelated when forced into a
+# square tile, so this uses a dedicated square icon instead).
 # Served from branboos_erp/public/images/ at /assets/branboos_erp/...
-app_logo_url = "/assets/branboos_erp/images/logo.png"
+app_logo_url = "/assets/branboos_erp/images/icon.png"
 
 # Gives this app its own tile on the /apps switcher screen (otherwise it's
 # invisible there — only apps listed here get a tile), pointing at our
