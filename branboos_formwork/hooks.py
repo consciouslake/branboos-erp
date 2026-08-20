@@ -14,6 +14,19 @@ app_license     = "MIT"
 # Served from branboos_formwork/public/images/ at /assets/branboos_formwork/...
 app_logo_url = "/assets/branboos_formwork/images/logo.png"
 
+# Gives this app its own tile on the /apps switcher screen (otherwise it's
+# invisible there — only apps listed here get a tile), pointing at our
+# branded Workspace (see branboos_formwork/workspace/branboos/branboos.json).
+add_to_apps_screen = [
+    {
+        "name": "branboos_formwork",
+        "logo": app_logo_url,
+        "title": "BranBoos",
+        "route": "/app/branboos",
+        "has_permission": "frappe.permissions.check_app_permission",
+    }
+]
+
 # ── DocType JS overrides ────────────────────────────────────────────────────
 # doctype_js = {
 #   "Supplier": "public/js/supplier.js",
