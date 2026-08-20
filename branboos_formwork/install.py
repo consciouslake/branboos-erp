@@ -16,10 +16,13 @@ LOGO = "/assets/branboos_formwork/images/logo.png"
 FAVICON = "/assets/branboos_formwork/images/favicon.png"
 LETTERHEAD_LOGO = "/assets/branboos_formwork/images/letterhead-logo.png"
 LETTERHEAD_NAME = "BranBoos"
+DEFAULT_WORKSPACE = "BranBoos"
 
 
 def after_install():
     _apply_website_settings()
+    _apply_navbar_settings()
+    _set_default_workspace()
     _apply_letter_head()
 
 
@@ -29,6 +32,23 @@ def _apply_website_settings():
     settings.banner_image = LOGO
     settings.favicon = FAVICON
     settings.save(ignore_permissions=True)
+
+
+def _apply_navbar_settings():
+    """Website Settings.app_logo covers the public site; the desk's own
+    top-left logo (next to the app switcher) is a separate setting."""
+    navbar = frappe.get_single("Navbar Settings")
+    navbar.app_logo = LOGO
+    navbar.save(ignore_permissions=True)
+
+
+def _set_default_workspace():
+    """Land on our own branded Workspace (see workspace/branboos/branboos.json)
+    instead of the generic app home screen after login."""
+    if not frappe.db.exists("Workspace", DEFAULT_WORKSPACE):
+        return
+    for user in frappe.get_all("User", filters={"user_type": "System User"}, pluck="name"):
+        frappe.db.set_value("User", user, "default_workspace", DEFAULT_WORKSPACE)
 
 
 def _apply_letter_head():
