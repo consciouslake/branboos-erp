@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Seeds sample Suppliers for local development / demos.
-Run with: bench --site <site> execute branboos_formwork.demo_data.run
+Run with: bench --site <site> execute branboos_erp.demo_data.run
 """
 
 from __future__ import annotations

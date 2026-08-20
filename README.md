@@ -1,4 +1,4 @@
-# branboos_formwork
+# branboos_erp
 
 > Custom Frappe app for **Branboos ERP customizations**.
 
@@ -6,18 +6,18 @@
 
 ```bash
 # From inside your bench directory:
-bench get-app https://github.com/branboos/branboos-formwork
-bench install-app branboos_formwork
+bench get-app https://github.com/branboos/branboos-erp
+bench install-app branboos_erp
 ```
 
 ## What's in here
 
 | Path | Purpose |
 |---|---|
-| `branboos_formwork/` | Python app package |
-| `branboos_formwork/hooks.py` | Frappe app hooks (DocType events, scheduled tasks) |
-| `branboos_formwork/custom/` | Custom field definitions & property setters |
-| `branboos_formwork/overrides/` | Controller overrides for standard ERP DocTypes |
+| `branboos_erp/` | Python app package |
+| `branboos_erp/hooks.py` | Frappe app hooks (DocType events, scheduled tasks) |
+| `branboos_erp/custom/` | Custom field definitions & property setters |
+| `branboos_erp/overrides/` | Controller overrides for standard ERP DocTypes |
 
 ## Structure note
 

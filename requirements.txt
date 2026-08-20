@@ -1,4 +1,4 @@
-# Additional third-party Python dependencies for branboos_formwork.
+# Additional third-party Python dependencies for branboos_erp.
 # Do not list `frappe` here — it's already installed in the bench, and
 # uv's strict resolver chokes on frappe's own URL-based sub-dependencies
 # (e.g. pypika) if it's asked to re-resolve it as a plain PyPI package.

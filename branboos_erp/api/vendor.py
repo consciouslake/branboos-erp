@@ -2,7 +2,7 @@
 """
 API endpoint called by Quarry to read vendor data from Formwork (ERP).
 
-Exposed at: GET /api/method/branboos_formwork.api.vendor.list
+Exposed at: GET /api/method/branboos_erp.api.vendor.list
 Auth: standard Frappe API key/secret pair (the FORMWORK_API_TOKEN Quarry
 holds is used as the Authorization header when calling this endpoint).
 

@@ -4,7 +4,7 @@ with open("requirements.txt") as f:
     install_requires = f.read().strip().split("\n")
 
 setup(
-    name="branboos_formwork",
+    name="branboos_erp",
     version="0.1.0",
     description="Branboos ERP customizations for Frappe / ERPNext",
     author="Branboos",

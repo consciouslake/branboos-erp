@@ -1,4 +1,4 @@
-# Formwork (ERP) image — ERPNext + branboos_formwork, layered on Frappe's
+# Formwork (ERP) image — ERPNext + branboos_erp, layered on Frappe's
 # own published base images per implementation appendix §5.
 #
 # Adapted from frappe_docker's images/layered/Containerfile:
@@ -9,14 +9,14 @@
 # guidance.
 #
 # Build context must be the workspace root (parent of branboos-structura/
-# and branboos-formwork/) so this Containerfile can COPY the local
-# branboos_formwork source — see deploy/docker-compose.yml.
+# and branboos-erp/) so this Containerfile can COPY the local
+# branboos_erp source — see deploy/docker-compose.yml.
 #
 # apps.json (erpnext) is fetched from GitHub as usual, via a BuildKit
 # secret so no token/URL ends up baked into image layer history:
-#   docker build --secret=id=apps_json,src=branboos-formwork/apps.json ...
+#   docker build --secret=id=apps_json,src=branboos-erp/apps.json ...
 #
-# branboos_formwork itself is added from the local build context rather
+# branboos_erp itself is added from the local build context rather
 # than a git URL, because this repo hasn't been pushed to a remote yet.
 # Once it has, replace the COPY + `bench get-app <local path>` step below
 # with a second entry in apps.json (url + branch) — the same mechanism
@@ -51,11 +51,11 @@ RUN --mount=type=secret,id=apps_json,target=/opt/frappe/apps.json,uid=1000,gid=1
   echo "{}" > sites/common_site_config.json && \
   find apps -mindepth 1 -path "*/.git" | xargs rm -fr
 
-# ── Layer in branboos_formwork from the local build context ────────────────
-COPY --chown=frappe:frappe branboos-formwork /home/frappe/branboos_formwork_src
+# ── Layer in branboos_erp from the local build context ────────────────
+COPY --chown=frappe:frappe branboos-erp /home/frappe/branboos_erp_src
 RUN cd /home/frappe/frappe-bench && \
-  bench get-app --skip-assets /home/frappe/branboos_formwork_src && \
-  rm -rf /home/frappe/branboos_formwork_src apps/branboos_formwork/.git && \
+  bench get-app --skip-assets /home/frappe/branboos_erp_src && \
+  rm -rf /home/frappe/branboos_erp_src apps/branboos_erp/.git && \
   bench build
 
 FROM ${FRAPPE_IMAGE_PREFIX}/base:${FRAPPE_BRANCH} AS backend
@@ -76,10 +76,10 @@ VOLUME [ \
 ]
 
 USER root
-COPY branboos-formwork/resources/core/main-entrypoint.sh /usr/local/bin/entrypoint.sh
+COPY branboos-erp/resources/core/main-entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod 755 /usr/local/bin/entrypoint.sh
 
-COPY branboos-formwork/resources/core/start.sh /usr/local/bin/start.sh
+COPY branboos-erp/resources/core/start.sh /usr/local/bin/start.sh
 RUN chmod 755 /usr/local/bin/start.sh
 
 USER frappe

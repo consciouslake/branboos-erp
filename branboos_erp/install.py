@@ -4,17 +4,17 @@ Applies BranBoos branding site-wide. Runs on `bench install-app` and every
 `bench migrate`, so branding stays applied without a manual click-through
 after every deploy.
 
-Assets live in branboos_formwork/public/images/ and are served by Frappe
-at /assets/branboos_formwork/images/<file> once the app is installed.
+Assets live in branboos_erp/public/images/ and are served by Frappe
+at /assets/branboos_erp/images/<file> once the app is installed.
 """
 
 from __future__ import annotations
 
 import frappe
 
-LOGO = "/assets/branboos_formwork/images/logo.png"
-FAVICON = "/assets/branboos_formwork/images/favicon.png"
-LETTERHEAD_LOGO = "/assets/branboos_formwork/images/letterhead-logo.png"
+LOGO = "/assets/branboos_erp/images/logo.png"
+FAVICON = "/assets/branboos_erp/images/favicon.png"
+LETTERHEAD_LOGO = "/assets/branboos_erp/images/letterhead-logo.png"
 LETTERHEAD_NAME = "BranBoos"
 DEFAULT_WORKSPACE = "ERP"
 

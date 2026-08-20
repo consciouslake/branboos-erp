@@ -3,7 +3,7 @@
 API endpoint called by Quarry to write a Purchase Order once a
 procurement decision from a Quarry recommendation is approved.
 
-Exposed at: POST /api/method/branboos_formwork.api.po.create
+Exposed at: POST /api/method/branboos_erp.api.po.create
 Auth: standard Frappe API key/secret pair (FORMWORK_API_TOKEN).
 """
 
