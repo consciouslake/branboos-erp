@@ -16,7 +16,7 @@ LOGO = "/assets/branboos_formwork/images/logo.png"
 FAVICON = "/assets/branboos_formwork/images/favicon.png"
 LETTERHEAD_LOGO = "/assets/branboos_formwork/images/letterhead-logo.png"
 LETTERHEAD_NAME = "BranBoos"
-DEFAULT_WORKSPACE = "BranBoos"
+DEFAULT_WORKSPACE = "ERP"
 
 
 def after_install():

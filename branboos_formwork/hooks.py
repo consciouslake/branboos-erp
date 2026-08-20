@@ -21,8 +21,8 @@ add_to_apps_screen = [
     {
         "name": "branboos_formwork",
         "logo": app_logo_url,
-        "title": "BranBoos",
-        "route": "/app/branboos",
+        "title": "ERP",
+        "route": "/app/erp",
         "has_permission": "frappe.permissions.check_app_permission",
     }
 ]
