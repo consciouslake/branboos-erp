@@ -1,0 +1,58 @@
+[
+  {
+    "doctype": "Custom Field",
+    "dt": "Supplier",
+    "module": "Branboos Formwork",
+    "fieldname": "custom_city",
+    "fieldtype": "Data",
+    "label": "City",
+    "insert_after": "supplier_name"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Supplier",
+    "module": "Branboos Formwork",
+    "fieldname": "custom_current_quote",
+    "fieldtype": "Currency",
+    "label": "Current Quote",
+    "insert_after": "custom_city"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Supplier",
+    "module": "Branboos Formwork",
+    "fieldname": "custom_on_time_rate",
+    "fieldtype": "Percent",
+    "label": "On-Time Delivery Rate",
+    "insert_after": "custom_current_quote"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Supplier",
+    "module": "Branboos Formwork",
+    "fieldname": "custom_quality_rating",
+    "fieldtype": "Float",
+    "label": "Quality Rating (0-5)",
+    "insert_after": "custom_on_time_rate"
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Supplier",
+    "module": "Branboos Formwork",
+    "fieldname": "custom_dispute_count",
+    "fieldtype": "Int",
+    "label": "Dispute Count",
+    "insert_after": "custom_quality_rating",
+    "non_negative": 1
+  },
+  {
+    "doctype": "Custom Field",
+    "dt": "Supplier",
+    "module": "Branboos Formwork",
+    "fieldname": "custom_past_project_count",
+    "fieldtype": "Int",
+    "label": "Past Project Count",
+    "insert_after": "custom_dispute_count",
+    "non_negative": 1
+  }
+]
