@@ -48,7 +48,28 @@ SUPPLIERS = [
 ]
 
 
+def _ensure_supplier_group() -> str:
+    """Fresh ERPNext sites created non-interactively (no Setup Wizard) have
+    no Supplier Group records — Supplier.supplier_group is a mandatory Link,
+    so create a root group if none exists."""
+    existing = frappe.db.get_value("Supplier Group", {"is_group": 1}, "name")
+    if existing:
+        return existing
+
+    group = frappe.get_doc(
+        {
+            "doctype": "Supplier Group",
+            "supplier_group_name": "All Supplier Groups",
+            "is_group": 1,
+        }
+    )
+    group.insert(ignore_permissions=True)
+    return group.name
+
+
 def run():
+    supplier_group = _ensure_supplier_group()
+
     created = []
     for supplier in SUPPLIERS:
         if frappe.db.exists("Supplier", {"supplier_name": supplier["supplier_name"]}):
@@ -56,7 +77,7 @@ def run():
         doc = frappe.get_doc(
             {
                 "doctype": "Supplier",
-                "supplier_group": "All Supplier Groups",
+                "supplier_group": supplier_group,
                 "supplier_type": "Company",
                 **supplier,
             }
