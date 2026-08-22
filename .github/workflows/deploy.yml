@@ -1,0 +1,27 @@
+name: Deploy ERP
+
+on:
+  push:
+    branches: [master]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Rebuild ERP image and redeploy
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.VM_HOST }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_SSH_KEY }}
+          script: |
+            set -e
+            cd ~/branboos/deploy
+            # See the matching comment in branboos-crm's workflow — CACHE_BUST
+            # must change every deploy or the build reuses the old ERP clone.
+            docker compose build --build-arg CACHE_BUST=${{ github.sha }} erp-configurator
+            docker compose up -d --force-recreate \
+              erp-backend erp-frontend erp-queue erp-scheduler erp-websocket
+            sleep 5
+            docker compose exec -T erp-backend bench --site erp.branboos.com migrate
+            docker compose exec -T erp-backend bench --site erp.branboos.com clear-cache
